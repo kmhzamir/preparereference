@@ -359,7 +359,7 @@
                     "description": "Path to the file containing HGNC_IDs of interest on separate lines."
                 }
             },
-            "required": ["fasta", "intervals_wgs", "intervals_y"]
+            "required": ["fasta"]
         },
         "analysis_options": {
             "title": "Analysis options",
