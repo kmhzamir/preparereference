@@ -158,7 +158,6 @@ workflow RAREDISEASE {
     
     ch_genome_bwamem2index      = params.bwamem2                           ? Channel.fromPath(params.bwamem2).map {it -> [[id:it[0].simpleName], it]}.collect()
                                                                            : ch_references.genome_bwamem2_index
-    ch_genome_fai               = ch_references.genome_fai
     ch_versions                 = ch_versions.mix(ch_references.versions)
 
     //
