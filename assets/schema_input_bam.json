@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/nf-core/bamtofastq/master/assets/schema_input.json",
+    "title": "nf-core/nf-core-configureinput pipeline - params.input schema",
+    "description": "Schema for the file provided with params.input",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "sample_id": {
+                "type": "string",
+                "pattern": "^\\S+$",
+                "errorMessage": "The sample sheet should specify a sample_id for each row which cannot contain spaces.",
+                "meta": ["id"]
+            },
+            "vcf": {
+                "type": "string",
+                "format": "file-path",
+                "exists": true,
+                "pattern": "^\\S+\\.(vcf|vcf.gz)$",
+                "errorMessage": "The sample sheet should specify a vcf file for each row, either '.vcf or '.vcf.gz'"
+            },
+            "index": {
+                "type": "string",
+                "format": "file-path",
+                "exists": true,
+                "pattern": "^\\S+\\.(vcf.gz.tbi)$",
+                "errorMessage": "Index files can be provided but must have the extension '.vcf.gz.tbi'"
+            }
+        },
+        "required": ["sample_id", "vcf"]
+    }
+}
